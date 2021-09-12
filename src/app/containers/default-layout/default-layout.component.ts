@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Inject } from '@angular/core';
+import { Component, OnDestroy, Inject, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { navItems } from '../../_nav';
 
@@ -27,4 +27,29 @@ export class DefaultLayoutComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.changes.disconnect();
   }
+  
+
+  public hasVariant(link) {
+    return link.variant ? true : false
+  }
+
+  public isBadge(link) {
+    return link.badge ? true : false
+  }
+
+  public isExternalLink(link) {
+    return link.url.substring(0, 4) === 'http' ? true : false
+  }
+
+  public isIcon(link) {
+    return link.icon ? true : false
+  }
+  public isDivider(item) {
+    return item.divider ? true : false
+  }
+
+  public isTitle(item) {
+    return item.title ? true : false
+  }
+
 }
