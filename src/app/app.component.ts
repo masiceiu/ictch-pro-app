@@ -18,3 +18,6 @@ export class AppComponent implements OnInit {
     });
   }
 }
+
+//"node_modules/bootstrap/dist/css/bootstrap.min.css",
+//"src/scss/vendors/chart.js/chart.scss",
