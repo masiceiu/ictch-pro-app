@@ -112,7 +112,17 @@
     <!-- /.container-fluid -->
   </main>
   <ul class="nav">
-    <li *ngFor="let link of navItems"></li>
+    <li *ngFor="let link of navItems">
+      
+    <a *ngIf="!isTitle(link)"
+      [ngClass]="hasVariant(link) ? 'nav-link nav-link-' + link.variant : 'nav-link'"
+      routerLinkActive="active"
+      [routerLink]="[link.url]">
+      <i *ngIf="isIcon(link)" class="{{ link.icon }}"></i>
+      {{ link.name }}
+      <span *ngIf="isBadge(link)" [ngClass]="'badge badge-' + link.badge.variant">{{ link.badge.text }}</span>
+    </a>
+    </li>
   </ul>
   <!--<nav class="sidebar-nav">
   <ul class="nav">
